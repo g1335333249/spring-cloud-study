@@ -11,6 +11,7 @@
     <description>Spring Cloud Study Dependencies</description>
 
     <properties>
+        <spring-cloud-study-common.version>1.0.0-SNAPSHOT</spring-cloud-study-common.version>
         <mybatis-plus.version>3.2.0</mybatis-plus.version>
         <p6spy.version>3.8.6</p6spy.version>
         <druid-spring-boot-stater.version>1.1.20</druid-spring-boot-stater.version>
@@ -25,6 +26,11 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.github.g1335333249</groupId>
+                <artifactId>spring-cloud-study-common</artifactId>
+                <version>${spring-cloud-study-common.version}</version>
+            </dependency>
             <!-- Mybatis Plus dependencies -->
             <dependency>
                 <groupId>com.baomidou</groupId>
