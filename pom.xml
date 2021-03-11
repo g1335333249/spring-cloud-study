@@ -20,9 +20,9 @@
     <name>spring-cloud-study</name>
     <description>spring-cloud学习</description>
     <scm>
-        <url>http://gitlab.hffss.com/jdb/jdb-data-service</url>
-        <connection>scm:git:http://gitlab.hffss.com/jdb/jdb-data-service.git</connection>
-        <developerConnection>scm:git:ssh://git@gitlab.hffss.com:2222/jdb/jdb-data-service.git</developerConnection>
+        <url>https://github.com/g1335333249/spring-cloud-study</url>
+        <connection>scm:git:https://github.com/g1335333249/spring-cloud-study.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:g1335333249/spring-cloud-study.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
