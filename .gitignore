@@ -7,8 +7,7 @@
 .idea/misc.xml
 .idea/vcs.xml
 spring-cloud-study-auth/spring-cloud-study-auth.iml
-spring-cloud-study-auth/src/
 spring-cloud-study-common/spring-cloud-study-common.iml
-spring-cloud-study-common/src/
 spring-cloud-study-dependencies/spring-cloud-study-dependencies.iml
 spring-cloud-study.iml
+**/target
