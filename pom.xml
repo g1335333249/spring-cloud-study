@@ -8,6 +8,7 @@
         <module>spring-cloud-study-dependencies</module>
         <module>spring-cloud-study-common</module>
         <module>spring-cloud-study-auth</module>
+        <module>spring-cloud-study-gateway</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

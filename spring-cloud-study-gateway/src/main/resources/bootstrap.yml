@@ -1,0 +1,54 @@
+server:
+  port: 5000
+spring:
+  application:
+    name: spring-cloud-study-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      routes:
+#        - id: spring-cloud-study-auth
+#          uri: lb://spring-cloud-study-auth
+#          predicates:
+#            - Path=/auth/**
+#          filters:
+#            - StripPrefix = 1
+        - id: baidu
+          uri: https://www.baidu.com
+          # 路由匹配策略，多个策略需同时满足
+          predicates:
+            # 以Path开头的请求转发到该路由
+            - Path=/baidu
+            # 表示在什么时间之后可以访问
+#            - After=2021-01-20T17:42:47.789-07:00[America/Denver]
+            # 表示在什么时间之前可以访问
+#            - Before=2030-01-20T17:42:47.789-07:00[America/Denver]
+            # 表示在什么时间之间可以访问
+#            - Between=2017-01-20T17:42:47.789-07:00[America/Denver], 2030-01-21T17:42:47.789-07:00[America/Denver]
+            # 表示Cookie的Key为chocolate，Value满足ch.p的正则表达式
+#            - Cookie=chocolate, ch.p
+            # 表示Header的Key为X-Request-Id，Value满足\d+的正则表达式
+#            - Header=X-Request-Id, \d+
+            # 表示需Host满足**.somehost.org,**.anotherhost.org
+#            - Host=**.somehost.org,**.anotherhost.org
+            # 表示需Method满足GET,POST
+#            - Method=GET,POST
+            # 表示需参数Query满足green支持正则
+#            - Query=green
+            # 表示需RemoteAddr满足192.168.1.1/24
+#            - RemoteAddr=127.0.0.1/24
+            # 表示20%流量分发到该路由
+            - Weight=group1, 2
+          filters:
+            - StripPrefix=1
+        - id: wechat
+          uri: https://mp.weixin.qq.com
+          predicates:
+            - Path=/wx
+            - Weight=group1, 8
+  security:
+    user:
+      name: user
+      password: user
