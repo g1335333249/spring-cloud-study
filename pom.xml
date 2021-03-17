@@ -9,6 +9,7 @@
         <module>spring-cloud-study-common</module>
         <module>spring-cloud-study-auth</module>
         <module>spring-cloud-study-gateway</module>
+        <module>spring-cloud-study-resource-server</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

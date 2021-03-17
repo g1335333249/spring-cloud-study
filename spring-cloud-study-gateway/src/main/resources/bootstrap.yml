@@ -9,12 +9,18 @@ spring:
         server-addr: 127.0.0.1:8848
     gateway:
       routes:
-#        - id: spring-cloud-study-auth
-#          uri: lb://spring-cloud-study-auth
-#          predicates:
-#            - Path=/auth/**
-#          filters:
-#            - StripPrefix = 1
+        - id: spring-cloud-study-auth
+          uri: lb://spring-cloud-study-auth
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1
+        - id: spring-cloud-study-resource-server
+          uri: lb://spring-cloud-study-resource-server
+          predicates:
+            - Path=/resource/**
+          filters:
+            - StripPrefix=1
         - id: baidu
           uri: https://www.baidu.com
           # 路由匹配策略，多个策略需同时满足
@@ -48,7 +54,3 @@ spring:
           predicates:
             - Path=/wx
             - Weight=group1, 8
-  security:
-    user:
-      name: user
-      password: user

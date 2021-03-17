@@ -20,6 +20,14 @@
                     <artifactId>spring-boot-starter-web</artifactId>
                     <groupId>org.springframework.boot</groupId>
                 </exclusion>
+                <exclusion>
+                    <artifactId>spring-cloud-starter-security</artifactId>
+                    <groupId>org.springframework.cloud</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>spring-cloud-starter-oauth2</artifactId>
+                    <groupId>org.springframework.cloud</groupId>
+                </exclusion>
             </exclusions>
         </dependency>
 

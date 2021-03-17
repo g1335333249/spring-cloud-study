@@ -1,0 +1,14 @@
+server:
+  port: 5002
+spring:
+  application:
+    name: spring-cloud-study-resource-server
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+security:
+  oauth2:
+    resource:
+      id: ${spring.application.name}
+      user-info-uri: http://127.0.0.1:5000/auth/user
