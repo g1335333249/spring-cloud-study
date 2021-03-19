@@ -33,6 +33,8 @@ public class AuthAuthorizationServerConfigure extends AuthorizationServerConfigu
     private AuthUserDetailServiceImpl userDetailService;
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
+    private AuthWebResponseExceptionTranslator exceptionTranslator;
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
@@ -48,7 +50,8 @@ public class AuthAuthorizationServerConfigure extends AuthorizationServerConfigu
         endpoints.tokenStore(tokenStore())
                 .userDetailsService(userDetailService)
                 .authenticationManager(authenticationManager)
-                .tokenServices(defaultTokenServices());
+                .tokenServices(defaultTokenServices())
+                .exceptionTranslator(exceptionTranslator);
     }
 
     @Bean
