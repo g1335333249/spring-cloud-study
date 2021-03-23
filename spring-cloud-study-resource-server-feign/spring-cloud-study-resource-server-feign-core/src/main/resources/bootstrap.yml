@@ -1,8 +1,8 @@
 server:
-  port: 5002
+  port: 5003
 spring:
   application:
-    name: spring-cloud-study-resource-server
+    name: spring-cloud-study-resource-server-feign
   cloud:
     nacos:
       discovery:
@@ -12,10 +12,6 @@ security:
     resource:
       id: ${spring.application.name}
       user-info-uri: http://127.0.0.1:5000/auth/user
-# 配置把SecurityContext对象从你当前主线程传输到Hystrix线程。（在调用方开启）
-hystrix:
-  shareSecurityContext: true
-# 开启熔断（在调用方开启）
 feign:
   hystrix:
     enabled: true

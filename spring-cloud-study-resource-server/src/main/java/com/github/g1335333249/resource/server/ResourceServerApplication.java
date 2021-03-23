@@ -1,7 +1,10 @@
 package com.github.g1335333249.resource.server;
 
+import com.github.g1335333249.common.annotation.EnableAuthExceptionHandler;
+import com.github.g1335333249.common.annotation.EnableOAuth2FeignClient;
 import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 
 /**
@@ -12,6 +15,9 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
  */
 @SpringCloudApplication
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableAuthExceptionHandler
+@EnableFeignClients
+@EnableOAuth2FeignClient
 public class ResourceServerApplication {
     public static void main(String[] args) {
         SpringApplication.run(ResourceServerApplication.class, args);

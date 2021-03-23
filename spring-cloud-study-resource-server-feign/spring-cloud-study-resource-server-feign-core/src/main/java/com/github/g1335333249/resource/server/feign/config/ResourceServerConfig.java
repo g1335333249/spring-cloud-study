@@ -1,4 +1,4 @@
-package com.github.g1335333249.resource.server.config;
+package com.github.g1335333249.resource.server.feign.config;
 
 import com.github.g1335333249.common.handler.AuthAccessDeniedHandler;
 import com.github.g1335333249.common.handler.AuthExceptionEntryPoint;
@@ -11,8 +11,8 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Res
 
 /**
  * @author guanpeng
- * @description TODO
- * @date 2021/3/17 5:05 下午
+ * @description feign资源服务器配置
+ * @date 2021/3/19 3:36 下午
  * @since
  */
 @Configuration

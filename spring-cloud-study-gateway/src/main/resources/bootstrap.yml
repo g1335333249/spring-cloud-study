@@ -21,6 +21,18 @@ spring:
             - Path=/resource/**
           filters:
             - StripPrefix=1
+        - id: spring-cloud-study-resource-server-feign
+          uri: lb://spring-cloud-study-resource-server-feign
+          predicates:
+            - Path=/resource-feign/**
+          filters:
+            - StripPrefix=1
+        - id: spring-cloud-study-404
+          uri: lb://not-server
+          predicates:
+            - Path=/error/**
+          filters:
+            - StripPrefix=1
         - id: baidu
           uri: https://www.baidu.com
           # 路由匹配策略，多个策略需同时满足
@@ -28,23 +40,23 @@ spring:
             # 以Path开头的请求转发到该路由
             - Path=/baidu
             # 表示在什么时间之后可以访问
-#            - After=2021-01-20T17:42:47.789-07:00[America/Denver]
+            # - After=2021-01-20T17:42:47.789-07:00[America/Denver]
             # 表示在什么时间之前可以访问
-#            - Before=2030-01-20T17:42:47.789-07:00[America/Denver]
+            # - Before=2030-01-20T17:42:47.789-07:00[America/Denver]
             # 表示在什么时间之间可以访问
-#            - Between=2017-01-20T17:42:47.789-07:00[America/Denver], 2030-01-21T17:42:47.789-07:00[America/Denver]
+            # - Between=2017-01-20T17:42:47.789-07:00[America/Denver], 2030-01-21T17:42:47.789-07:00[America/Denver]
             # 表示Cookie的Key为chocolate，Value满足ch.p的正则表达式
-#            - Cookie=chocolate, ch.p
+            # - Cookie=chocolate, ch.p
             # 表示Header的Key为X-Request-Id，Value满足\d+的正则表达式
-#            - Header=X-Request-Id, \d+
+            # - Header=X-Request-Id, \d+
             # 表示需Host满足**.somehost.org,**.anotherhost.org
-#            - Host=**.somehost.org,**.anotherhost.org
+            # - Host=**.somehost.org,**.anotherhost.org
             # 表示需Method满足GET,POST
-#            - Method=GET,POST
+            # - Method=GET,POST
             # 表示需参数Query满足green支持正则
-#            - Query=green
+            # - Query=green
             # 表示需RemoteAddr满足192.168.1.1/24
-#            - RemoteAddr=127.0.0.1/24
+            # - RemoteAddr=127.0.0.1/24
             # 表示20%流量分发到该路由
             - Weight=group1, 2
           filters:
@@ -54,3 +66,19 @@ spring:
           predicates:
             - Path=/wx
             - Weight=group1, 8
+          # 单个路由超时时间
+          metadata:
+            response-timeout: 60000
+            connect-timeout: 60000
+      # 全局超时时间
+      httpclient:
+        connect-timeout: 60000
+        response-timeout: 60s
+      globalcors:
+        add-to-simple-url-handler-mapping: true
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+              - GET
+              - POST

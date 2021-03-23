@@ -12,6 +12,7 @@
 
     <properties>
         <spring-cloud-study-common.version>1.0.0-SNAPSHOT</spring-cloud-study-common.version>
+        <spring-cloud-study-resource-server-feign-api.version>1.0.0-SNAPSHOT</spring-cloud-study-resource-server-feign-api.version>
         <mybatis-plus.version>3.2.0</mybatis-plus.version>
         <p6spy.version>3.8.6</p6spy.version>
         <druid-spring-boot-stater.version>1.1.20</druid-spring-boot-stater.version>
@@ -30,6 +31,11 @@
                 <groupId>com.github.g1335333249</groupId>
                 <artifactId>spring-cloud-study-common</artifactId>
                 <version>${spring-cloud-study-common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.g1335333249</groupId>
+                <artifactId>spring-cloud-study-resource-server-feign-api</artifactId>
+                <version>${spring-cloud-study-resource-server-feign-api.version}</version>
             </dependency>
             <!-- Mybatis Plus dependencies -->
             <dependency>

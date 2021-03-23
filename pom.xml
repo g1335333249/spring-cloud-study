@@ -10,6 +10,7 @@
         <module>spring-cloud-study-auth</module>
         <module>spring-cloud-study-gateway</module>
         <module>spring-cloud-study-resource-server</module>
+        <module>spring-cloud-study-resource-server-feign</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
