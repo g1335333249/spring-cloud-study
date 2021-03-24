@@ -19,11 +19,21 @@
    - 3.构建
      - ```
        cd seata-docker
-       docker build -t seata:0.5.1 build
+       vim build/Dockerfile
+       修改版本号为最新目前为1.4.1
+       删除创建seata目录命令，并将解压目录中seata删除
+       docker build -t seata:1.4.1 build
        ```
    - 3.启动体验版
-     - `docker-compose -f example/standalone-derby.yaml up`
-   - 4.访问控制台[http://127.0.0.1:8848](http://127.0.0.1:8848)
+     - `docker run -d --name seata-server -p 8091:8091 seata:1.4.1`
+   - 4.直接安装docker版本
+     - `docker run -d --name seata-server -p 8091:8091 -e SEATA_IP=127.0.0.1 seataio/seata-server:latest`
+   - 5.修改注册中心为nacos
+     - ```
+       进入资源目录resources/registry.conf
+       修改注册和配置方式都为nacos
+       nacos地址在docker容器中不要填写localhost或者127.0.0.1
+       ```
 - 4.安装mysql
 ---
  |服务|端口|网关|
